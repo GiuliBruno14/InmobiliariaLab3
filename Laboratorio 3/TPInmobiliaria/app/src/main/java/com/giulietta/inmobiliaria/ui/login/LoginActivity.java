@@ -31,9 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // Observador de mensajes de error o info
         mv.getMensaje().observe(this, mensaje -> {
-            if (mensaje != null && !mensaje.isEmpty()) {
-                Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
-            }
+            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
         });
 
         // Observador de login exitoso
@@ -50,11 +48,6 @@ public class LoginActivity extends AppCompatActivity {
         binding.btnLogin.setOnClickListener(view -> {
             String email = binding.etEmail.getText().toString().trim();
             String clave = binding.etContrasenia.getText().toString().trim();
-
-            if (email.isEmpty() || clave.isEmpty()) {
-                Toast.makeText(this, "Ingrese email y contraseña", Toast.LENGTH_SHORT).show();
-                return;
-            }
 
             // Llamada al ViewModel
             mv.llamarLogin(email, clave);

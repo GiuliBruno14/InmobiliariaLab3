@@ -33,6 +33,13 @@ public class LoginActivityViewModel extends AndroidViewModel {
         return mMensaje;
     }
     public void llamarLogin(String email, String clave){
+        //Validar campos vacios
+        if (email == null || email.isEmpty() || clave == null || clave.isEmpty()) {
+            mMensaje.postValue("Ingrese email y contraseña");
+            mLogin.postValue(false);
+            return;
+        }
+
         ApiClient.InmobiliariaService api = ApiClient.getApiInmobiliaria();
         Call<String> llamada = api.login(email, clave);
         llamada.enqueue(new Callback<String>() {
