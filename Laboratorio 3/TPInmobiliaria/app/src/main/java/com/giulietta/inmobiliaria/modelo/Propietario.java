@@ -18,8 +18,6 @@ public class Propietario {
         this.email = email;
         this.dni = dni;
         this.telefono = telefono;
-        this.domicilio = domicilio;
-        this.ciudad = ciudad;
     }
 
     public Propietario() {

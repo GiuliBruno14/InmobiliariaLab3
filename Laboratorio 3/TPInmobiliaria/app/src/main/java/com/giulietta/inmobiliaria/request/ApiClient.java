@@ -12,11 +12,14 @@ import com.google.gson.GsonBuilder;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 
 public class ApiClient {
     public static final String URLBASE = "http://192.168.100.3:5021/"; //MI API
@@ -28,7 +31,7 @@ public class ApiClient {
         Gson gson = new GsonBuilder().setLenient().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(URLBASE)
-                //.addConverterFactory(ScalarsConverterFactory.create())
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
         return retrofit.create(InmobiliariaService.class);
@@ -68,6 +71,8 @@ public class ApiClient {
         //Obtener perfil del usuario
         @GET("api/propietarios/perfil")
         Call<Propietario> getPerfil(@Header("Authorization")String token);
+        @PUT("api/propietarios/actualizar")
+        Call<String> actualizarPropietario(@Header("Authorization")String token,@Body Propietario propietario);
 
     }
 

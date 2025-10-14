@@ -23,26 +23,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Imagen de perfil -->
-        <ImageView
-            android:id="@+id/img_perfil"
-            android:layout_width="86dp"
-            android:layout_height="82dp"
-            android:layout_marginBottom="24dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_perfil2" />
-
-        <EditText
-            android:id="@+id/et_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:padding="12dp"
-            android:hint="ID"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:gravity="start|center_vertical"
-            android:clickable="false" />
 
         <!-- Nombre -->
 
@@ -54,7 +34,8 @@
             android:hint="Nombre"
             android:inputType="textPersonName"
             android:textColor="@color/verde_oscuro"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:enabled="false"/>
 
         <EditText
             android:id="@+id/et_apellido"
@@ -64,7 +45,8 @@
             android:hint="Apellido"
             android:inputType="textPersonName"
             android:textColor="@color/verde_oscuro"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:enabled="false"/>
 
         <EditText
             android:id="@+id/et_dni"
@@ -74,7 +56,8 @@
             android:hint="DNI"
             android:inputType="number"
             android:textColor="@color/verde_oscuro"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:enabled="false"/>
 
         <!-- Email -->
         <EditText
@@ -85,7 +68,8 @@
             android:hint="usuario@example.com"
             android:inputType="textEmailAddress"
             android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:enabled="false"/>
 
         <!-- Teléfono -->
         <EditText
@@ -96,27 +80,8 @@
             android:hint="+54 9 11 1234-5678"
             android:inputType="phone"
             android:textColor="@color/black"
-            android:textSize="14sp" />
-
-        <EditText
-            android:id="@+id/et_domicilio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:hint="Domicilio"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
-
-        <EditText
-            android:id="@+id/et_ciudad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:hint="Ciudad"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:enabled="false"/>
 
         <!-- Botón Editar Perfil -->
         <Button
@@ -125,7 +90,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/verde"
             android:paddingVertical="12dp"
-            android:text="Editar Perfil"
+            android:text="Editar"
             android:textColor="@android:color/white" />
 
     </LinearLayout>

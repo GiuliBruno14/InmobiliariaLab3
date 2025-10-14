@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.giulietta.inmobiliaria.databinding.FragmentPerfilBinding;
@@ -30,8 +31,23 @@ public class PerfilFragment extends Fragment {
                 binding.etDni.setText(propietario.getDni());
                 binding.etEmail.setText(propietario.getEmail());
                 binding.etTelefono.setText(propietario.getTelefono());
-                binding.etDomicilio.setText(propietario.getDomicilio());
-                binding.etCiudad.setText(propietario.getCiudad());
+            }
+        });
+        mv.getEstado().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                binding.etNombre.setEnabled(aBoolean);
+                binding.etApellido.setEnabled(aBoolean);
+                binding.etDni.setEnabled(aBoolean);
+                binding.etEmail.setEnabled(aBoolean);
+                binding.etTelefono.setEnabled(aBoolean);
+            }
+        });
+
+        mv.getNombreBt().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                binding.btnEditarPerfil.setText(s);
             }
         });
 
@@ -41,6 +57,17 @@ public class PerfilFragment extends Fragment {
             }
         });
         mv.cargarPerfil(requireContext());
+        binding.btnEditarPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String nombre = binding.etNombre.getText().toString();
+                String apellido = binding.etApellido.getText().toString();
+                String email = binding.etEmail.getText().toString();
+                String dni = binding.etDni.getText().toString();
+                String telefono = binding.etTelefono.getText().toString();
+                mv.guardar(binding.btnEditarPerfil.getText().toString(),nombre, apellido, email,dni, telefono);
+            }
+        });
         return binding.getRoot();
     }
 
