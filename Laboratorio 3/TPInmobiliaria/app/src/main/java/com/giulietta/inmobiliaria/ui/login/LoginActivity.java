@@ -2,6 +2,7 @@ package com.giulietta.inmobiliaria.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -48,9 +49,15 @@ public class LoginActivity extends AppCompatActivity {
         binding.btnLogin.setOnClickListener(view -> {
             String email = binding.etEmail.getText().toString().trim();
             String clave = binding.etContrasenia.getText().toString().trim();
-
             // Llamada al ViewModel
             mv.llamarLogin(email, clave);
         });
+
+        binding.tvResetear.setOnClickListener(view -> {
+            Intent intent = new Intent(this, ResetearPasswordActivity.class);
+            startActivity(intent);
+        });
     }
+
 }
+

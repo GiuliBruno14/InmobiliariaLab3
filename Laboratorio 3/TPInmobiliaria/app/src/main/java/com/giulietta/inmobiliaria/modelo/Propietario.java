@@ -1,5 +1,7 @@
 package com.giulietta.inmobiliaria.modelo;
 
+import java.io.Serializable;
+
 public class Propietario {
     private int id;
     private String nombre;

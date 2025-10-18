@@ -21,6 +21,7 @@ import retrofit2.Response;
 public class LoginActivityViewModel extends AndroidViewModel {
     private MutableLiveData<String> mMensaje = new MutableLiveData<>();
     private MutableLiveData<Boolean> mLogin = new MutableLiveData<>();
+    private MutableLiveData <Boolean> estado_password = new MutableLiveData<>();
     private final Context context;
     public LoginActivityViewModel(@NonNull Application application) {
         super(application);
@@ -31,6 +32,9 @@ public class LoginActivityViewModel extends AndroidViewModel {
     }
     public LiveData<String> getMensaje() {
         return mMensaje;
+    }
+    public LiveData<Boolean> getEstadoPassword() {
+        return estado_password;
     }
     public void llamarLogin(String email, String clave){
         //Validar campos vacios
@@ -62,5 +66,6 @@ public class LoginActivityViewModel extends AndroidViewModel {
         });
 
     }
+
 
 }

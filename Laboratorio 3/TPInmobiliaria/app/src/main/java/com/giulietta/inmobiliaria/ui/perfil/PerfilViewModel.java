@@ -25,7 +25,7 @@ public class PerfilViewModel extends AndroidViewModel {
     public LiveData<Propietario> getPropietarioLiveData(){
         return mPropietario;
     }
-    public LiveData<String> getErrorLiveData() {
+    public LiveData<String> getMensaje() {
         return mMensaje;
     }
     public LiveData<String> getNombreBt(){
@@ -43,8 +43,8 @@ public class PerfilViewModel extends AndroidViewModel {
             mMensaje.setValue("Por favor inicie sesión");
             return;
         }
-        ApiClient.InmobiliariaService service = ApiClient.getApiInmobiliaria();
-        Call<Propietario> llamada = service.getPerfil("Bearer "+token);
+        ApiClient.InmobiliariaService api = ApiClient.getApiInmobiliaria();
+        Call<Propietario> llamada = api.getPerfil("Bearer "+token);
         llamada.enqueue(new Callback<Propietario>() {
             @Override
             public void onResponse(Call<Propietario> call, Response<Propietario> response) {

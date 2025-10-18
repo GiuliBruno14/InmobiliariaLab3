@@ -1,5 +1,6 @@
 package com.giulietta.inmobiliaria.ui.perfil;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import com.giulietta.inmobiliaria.R;
 import com.giulietta.inmobiliaria.databinding.FragmentPerfilBinding;
 
 public class PerfilFragment extends Fragment {
@@ -22,7 +26,6 @@ public class PerfilFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         mv = new ViewModelProvider(this).get(PerfilViewModel.class);
-
         binding = FragmentPerfilBinding.inflate(inflater, container, false);
         mv.getPropietarioLiveData().observe(getViewLifecycleOwner(), propietario -> {
             if(propietario != null){
@@ -51,10 +54,9 @@ public class PerfilFragment extends Fragment {
             }
         });
 
-        mv.getErrorLiveData().observe(getViewLifecycleOwner(), error -> {
-            if(error !=null){
+        mv.getMensaje().observe(getViewLifecycleOwner(), error -> {
                 Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
-            }
+
         });
         mv.cargarPerfil(requireContext());
         binding.btnEditarPerfil.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +69,11 @@ public class PerfilFragment extends Fragment {
                 String telefono = binding.etTelefono.getText().toString();
                 mv.guardar(binding.btnEditarPerfil.getText().toString(),nombre, apellido, email,dni, telefono);
             }
+        });
+
+        binding.btnCambiarContrasenia.setOnClickListener(view -> {
+            Intent intent = new Intent(getContext(), CambiarPasswordActivity.class);
+            startActivity(intent);
         });
         return binding.getRoot();
     }

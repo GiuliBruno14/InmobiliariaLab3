@@ -5,9 +5,12 @@ import android.content.SharedPreferences;
 import android.media.session.MediaSession;
 import android.support.v4.media.session.MediaSessionCompat;
 
+import com.giulietta.inmobiliaria.modelo.Inmueble;
 import com.giulietta.inmobiliaria.modelo.Propietario;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -71,8 +74,21 @@ public class ApiClient {
         //Obtener perfil del usuario
         @GET("api/propietarios/perfil")
         Call<Propietario> getPerfil(@Header("Authorization")String token);
+        //Actualizar Propietario
         @PUT("api/propietarios/actualizar")
         Call<String> actualizarPropietario(@Header("Authorization")String token,@Body Propietario propietario);
+
+        //Resetear contraseña
+        @FormUrlEncoded
+        @POST("api/propietarios/email")
+        Call<String> resetearPassword(@Field("email") String email);
+        //Cambiar contraseña
+        @FormUrlEncoded
+        @PUT("api/propietarios/cambiarPassword")
+        Call<String>cambiarPassword(@Header("Authorization")String token,@Field("passwordActual")String passwordActual, @Field("passwordNueva")String passwordNueva);
+
+        @GET("api/inmuebles")
+        Call<List<Inmueble>> obtenerInmuebles(@Header("Authorization") String token);
 
     }
 

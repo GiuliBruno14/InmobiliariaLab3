@@ -50,6 +50,8 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.play.services.location)
     implementation(libs.converter.scalars)
+    implementation(libs.recyclerview)
+    implementation(libs.glide)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
