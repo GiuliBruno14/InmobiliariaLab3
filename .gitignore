@@ -31,3 +31,12 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+# Aseguramos que suba todo lo demás de .NET
+!InmoBrunoSoazo/**/*.cs
+!InmoBrunoSoazo/**/*.sln
+!InmoBrunoSoazo/**/*.csproj
+
+# Cosas de .NET que queremos ignorar
+InmoBrunoSoazo/bin/
+InmoBrunoSoazo/obj/
