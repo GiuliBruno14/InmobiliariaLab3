@@ -23,65 +23,109 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
         <!-- Nombre -->
-
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/nombre"
+            app:boxBackgroundColor="@android:color/white"
+            app:boxStrokeColor="@color/verde_oscuro"
+            app:hintTextColor="@color/verde_oscuro">
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:hint="Nombre"
             android:inputType="textPersonName"
             android:textColor="@color/verde_oscuro"
             android:textSize="14sp"
             android:enabled="false"/>
-
-        <EditText
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Apellido -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/apellido"
+            app:boxBackgroundColor="@android:color/white"
+            app:boxStrokeColor="@color/verde_oscuro"
+            app:hintTextColor="@color/verde_oscuro">
+            <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_apellido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:hint="Apellido"
             android:inputType="textPersonName"
             android:textColor="@color/verde_oscuro"
             android:textSize="14sp"
             android:enabled="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
+        <!-- DNI -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/dni"
+            app:boxBackgroundColor="@android:color/white"
+            app:boxStrokeColor="@color/verde_oscuro"
+            app:hintTextColor="@color/verde_oscuro">
+            <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_dni"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:hint="DNI"
             android:inputType="number"
             android:textColor="@color/verde_oscuro"
             android:textSize="14sp"
             android:enabled="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Email -->
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/email"
+            app:boxBackgroundColor="@android:color/white"
+            app:boxStrokeColor="@color/verde_oscuro"
+            app:hintTextColor="@color/verde_oscuro">
+            <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:hint="usuario@example.com"
             android:inputType="textEmailAddress"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:enabled="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Teléfono -->
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/tel_fono"
+            app:boxBackgroundColor="@android:color/white"
+            app:boxStrokeColor="@color/verde_oscuro"
+            app:hintTextColor="@color/verde_oscuro">
+            <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_telefono"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:hint="+54 9 11 1234-5678"
             android:inputType="phone"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:enabled="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Botón Editar Perfil -->
         <Button

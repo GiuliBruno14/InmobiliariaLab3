@@ -1,7 +1,11 @@
 package com.giulietta.inmobiliaria.ui.perfil;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.InputType;
+import android.view.MotionEvent;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -43,4 +47,6 @@ public class CambiarPasswordActivity extends AppCompatActivity {
         });
 
     }
+
+
 }

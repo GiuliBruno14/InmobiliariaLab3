@@ -60,4 +60,14 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="cerrar_sesi_n">Cerrar Sesión</string>
+    <string name="email">Email</string>
+    <string name="contrasenia">Contraseña</string>
+    <string name="olvid_mi_contrase_a">Olvidé mi contraseña</string>
+    <string name="accede_a_tu_cuenta">Accede a tu cuenta</string>
+    <string name="ra_ces_inmobiliaria">Raíces Inmobiliaria</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="dni">DNI</string>
+    <string name="tel_fono">Teléfono</string>
 </resources>

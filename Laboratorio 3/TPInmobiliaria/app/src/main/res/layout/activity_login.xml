@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_degrade"
-    android:padding="34dp">
+    android:padding="34dp"
+    tools:context=".ui.login.LoginActivity">
 
     <LinearLayout
         android:id="@+id/login_container"
@@ -22,75 +23,78 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Titulo -->
         <TextView
             android:id="@+id/tvTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Raíces Inmobiliaria"
+            android:text="@string/ra_ces_inmobiliaria"
             android:textColor="#1B5E20"
             android:textSize="28sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
             android:paddingBottom="8dp"/>
 
-        <!-- Subtitulo -->
         <TextView
             android:id="@+id/tvLoginSubtitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Accede a tu cuenta"
+            android:text="@string/accede_a_tu_cuenta"
             android:textColor="#666666"
             android:textSize="14sp"
             android:layout_gravity="center_horizontal"
             android:paddingBottom="24dp"/>
 
-        <!-- Usuario -->
-        <EditText
-            android:id="@+id/etEmail"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/et_redondeado"
-            android:hint="Email"
-            android:inputType="text"
-            android:padding="16dp" />
+            app:boxBackgroundColor="@android:color/white"
+            app:boxStrokeColor="@color/verde_oscuro"
+            app:hintTextColor="@color/verde_oscuro">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Contraseña -->
-        <EditText
-            android:id="@+id/etContrasenia"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/et_redondeado"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
-            android:drawableEnd="@drawable/ic_ojo_cerrado"
-            android:padding="16dp"
-            android:layout_marginBottom="24dp"/>
+            android:layout_marginBottom="24dp"
+            app:endIconMode="password_toggle"
+            app:boxBackgroundColor="@android:color/white"
+            app:boxStrokeColor="@color/verde_oscuro"
+            app:hintTextColor="@color/verde_oscuro">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etContrasenia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/contrasenia"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Boton Ingresar -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ingresar"
+            android:text="@string/ingresar"
             android:textColor="#FFFFFF"
             app:backgroundTint="@color/verde"
             app:cornerRadius="12dp"/>
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/tvResetear"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Olvidé mi contraseña"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/olvid_mi_contrase_a"
             android:textColor="@color/verde"
+            app:backgroundTint="@color/white"
             android:textSize="14sp"
-            android:gravity="center"
-            android:paddingTop="12dp"
-            android:clickable="true"
-            android:focusable="true"/>
+            android:paddingTop="12dp"/>
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 

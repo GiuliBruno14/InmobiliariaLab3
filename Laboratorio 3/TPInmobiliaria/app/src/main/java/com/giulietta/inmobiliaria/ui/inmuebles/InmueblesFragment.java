@@ -38,8 +38,6 @@ public class InmueblesFragment extends Fragment {
                 rv.setAdapter(adapter);
             }
         });
-
-
         return binding.getRoot();
     }
 
