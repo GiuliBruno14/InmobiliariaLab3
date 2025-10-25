@@ -37,8 +37,8 @@ public class PerfilViewModel extends AndroidViewModel {
     public PerfilViewModel (@NonNull Application application){
         super(application);
     }
-    public void cargarPerfil(Context context) {
-        String token = ApiClient.leerToken(context);
+    public void cargarPerfil() {
+        String token = ApiClient.leerToken(getApplication());
         if(token == null){
             mMensaje.setValue("Por favor inicie sesión");
             return;

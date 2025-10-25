@@ -1,5 +1,6 @@
 package com.giulietta.inmobiliaria.ui.inmuebles;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.giulietta.inmobiliaria.R;
 import com.giulietta.inmobiliaria.databinding.FragmentInmueblesBinding;
 import com.giulietta.inmobiliaria.modelo.Inmueble;
 
@@ -38,6 +41,11 @@ public class InmueblesFragment extends Fragment {
                 rv.setAdapter(adapter);
             }
         });
+        binding.fabAgregarInmueble.setOnClickListener( view -> {
+            //Navegar al fragmetn de cargar inmueble
+            Navigation.findNavController(view).navigate(R.id.cargarInmuebleFragment);
+        });
+
         return binding.getRoot();
     }
 

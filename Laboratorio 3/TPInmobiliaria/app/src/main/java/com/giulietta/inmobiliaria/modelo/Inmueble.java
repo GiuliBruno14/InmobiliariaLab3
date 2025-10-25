@@ -9,13 +9,16 @@ public class Inmueble implements Serializable {
     private String tipo;
     private int ambientes;
     private double precio;
-    private int latitud;
-    private int longitud;
+    private String latitud;
+    private String longitud;
     private String disponible;
     private Propietario propietario;
     private String imagen;
 
-    public Inmueble(int id, String direccion, String uso, String tipo, int ambientes, double precio, int longitud, int latitud, String disponible, Propietario propietario, String imagen) {
+    public Inmueble() {
+    }
+
+    public Inmueble(int id, String direccion, String uso, String tipo, int ambientes, double precio, String longitud, String latitud, String disponible, Propietario propietario, String imagen) {
         this.id = id;
         this.direccion = direccion;
         this.uso = uso;
@@ -78,11 +81,11 @@ public class Inmueble implements Serializable {
         this.precio = precio;
     }
 
-    public int getLatitud() {
+    public String getLatitud() {
         return latitud;
     }
 
-    public void setLatitud(int latitud) {
+    public void setLatitud(String latitud) {
         this.latitud = latitud;
     }
 
@@ -94,11 +97,11 @@ public class Inmueble implements Serializable {
         this.disponible = disponible;
     }
 
-    public int getLongitud() {
+    public String getLongitud() {
         return longitud;
     }
 
-    public void setLongitud(int longitud) {
+    public void setLongitud(String longitud) {
         this.longitud = longitud;
     }
 

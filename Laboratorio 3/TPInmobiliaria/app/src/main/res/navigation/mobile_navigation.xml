@@ -15,13 +15,24 @@
         android:id="@+id/nav_perfil"
         android:name="com.giulietta.inmobiliaria.ui.perfil.PerfilFragment"
         android:label="@string/perfil"
-        tools:layout="@layout/fragment_perfil" />
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_nav_perfil_to_cambiarPasswordFragment"
+            app:destination="@id/cambiarPasswordFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_inmuebles"
         android:name="com.giulietta.inmobiliaria.ui.inmuebles.InmueblesFragment"
         android:label="@string/inmuebles"
-        tools:layout="@layout/fragment_inmuebles" />
+        tools:layout="@layout/fragment_inmuebles" >
+        <action
+            android:id="@+id/action_nav_inmuebles_to_detalleInmuebleFragment"
+            app:destination="@id/detalleInmuebleFragment" />
+        <action
+            android:id="@+id/action_nav_inmuebles_to_cargarInmuebleFragment"
+            app:destination="@id/cargarInmuebleFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_inquilinos"
@@ -38,6 +49,33 @@
         android:name="com.giulietta.inmobiliaria.ui.logout.LogoutFragment"
         android:label="Cerrar Sesión"
         tools:layout="@layout/fragment_logout" />
+    <fragment
+        android:id="@+id/detalleInmuebleFragment"
+        android:name="com.giulietta.inmobiliaria.ui.inmuebles.DetalleInmuebleFragment"
+        android:label="fragment_detalle_inmueble"
+        tools:layout="@layout/fragment_detalle_inmueble" >
+        <action
+            android:id="@+id/action_detalleInmuebleFragment_to_nav_inmuebles"
+            app:destination="@id/nav_inmuebles" />
+    </fragment>
+    <fragment
+        android:id="@+id/cargarInmuebleFragment"
+        android:name="com.giulietta.inmobiliaria.ui.inmuebles.CargarInmuebleFragment"
+        android:label="fragment_cargar_inmueble"
+        tools:layout="@layout/fragment_cargar_inmueble" >
+        <action
+            android:id="@+id/action_cargarInmuebleFragment_to_nav_inmuebles"
+            app:destination="@id/nav_inmuebles" />
+    </fragment>
+    <fragment
+        android:id="@+id/cambiarPasswordFragment"
+        android:name="com.giulietta.inmobiliaria.ui.perfil.CambiarPasswordFragment"
+        android:label="fragment_cambiar_password"
+        tools:layout="@layout/fragment_cambiar_password" >
+        <action
+            android:id="@+id/action_cambiarPasswordFragment_to_nav_perfil"
+            app:destination="@id/nav_perfil" />
+    </fragment>
 
 
 </navigation>

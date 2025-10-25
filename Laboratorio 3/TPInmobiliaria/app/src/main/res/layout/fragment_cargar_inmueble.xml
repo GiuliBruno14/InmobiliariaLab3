@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_degrade"
+    android:padding="34dp"
+    tools:context=".ui.inmuebles.CargarInmuebleFragment">
+
+    <!-- Contenedor principal (Card) -->
+    <LinearLayout
+        android:id="@+id/inmueble_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_redondeada"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/tvTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cargar Inmueble"
+            android:textColor="@color/verde_oscuro"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Dirección -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Dirección"
+            android:layout_marginBottom="12dp"
+            app:boxBackgroundColor="@android:color/white"
+            app:boxStrokeColor="@color/verde_oscuro"
+            app:hintTextColor="@color/verde_oscuro">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:inputType="textCapWords"
+                android:textColor="@color/verde_oscuro"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Uso -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Uso (Residencial, Comercial...)"
+            android:layout_marginBottom="12dp"
+            app:boxBackgroundColor="@android:color/white"
+            app:boxStrokeColor="@color/verde_oscuro"
+            app:hintTextColor="@color/verde_oscuro">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etUso"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:inputType="textCapWords"
+                android:textColor="@color/verde_oscuro"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Tipo -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tipo (Casa, Departamento...)"
+            android:layout_marginBottom="12dp"
+            app:boxBackgroundColor="@android:color/white"
+            app:boxStrokeColor="@color/verde_oscuro"
+            app:hintTextColor="@color/verde_oscuro">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTipo"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:inputType="textCapWords"
+                android:textColor="@color/verde_oscuro"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Ambientes -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cantidad de ambientes"
+            android:layout_marginBottom="12dp"
+            app:boxBackgroundColor="@android:color/white"
+            app:boxStrokeColor="@color/verde_oscuro"
+            app:hintTextColor="@color/verde_oscuro">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAmbientes"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:inputType="number"
+                android:textColor="@color/verde_oscuro"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Latitud -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Latitud"
+            android:layout_marginBottom="12dp"
+            app:boxBackgroundColor="@android:color/white"
+            app:boxStrokeColor="@color/verde_oscuro"
+            app:hintTextColor="@color/verde_oscuro">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLatitud"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:inputType="numberDecimal"
+                android:textColor="@color/verde_oscuro"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Longitud -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Longitud"
+            android:layout_marginBottom="12dp"
+            app:boxBackgroundColor="@android:color/white"
+            app:boxStrokeColor="@color/verde_oscuro"
+            app:hintTextColor="@color/verde_oscuro">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLongitud"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:inputType="numberDecimal"
+                android:textColor="@color/verde_oscuro"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Precio -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Precio"
+            android:layout_marginBottom="12dp"
+            app:boxBackgroundColor="@android:color/white"
+            app:boxStrokeColor="@color/verde_oscuro"
+            app:hintTextColor="@color/verde_oscuro">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPrecio"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:inputType="numberDecimal"
+                android:textColor="@color/verde_oscuro"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Botón Imagen -->
+        <Button
+            android:id="@+id/btnSeleccionarImagen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seleccionar Imagen"
+            android:backgroundTint="@color/verde"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Vista previa de imagen -->
+        <ImageView
+            android:id="@+id/ivPreviewImagen"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:visibility="gone" />
+
+        <!-- Botón Guardar -->
+        <Button
+            android:id="@+id/btnGuardarInmueble"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar Inmueble"
+            android:backgroundTint="@color/verde"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="20dp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

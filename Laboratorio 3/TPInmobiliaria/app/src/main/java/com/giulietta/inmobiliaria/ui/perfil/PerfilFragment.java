@@ -58,7 +58,7 @@ public class PerfilFragment extends Fragment {
                 Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
 
         });
-        mv.cargarPerfil(requireContext());
+        mv.cargarPerfil();
         binding.btnEditarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,8 +72,8 @@ public class PerfilFragment extends Fragment {
         });
 
         binding.btnCambiarContrasenia.setOnClickListener(view -> {
-            Intent intent = new Intent(getContext(), CambiarPasswordActivity.class);
-            startActivity(intent);
+            //Navegar al fragmetn
+            Navigation.findNavController(view).navigate(R.id.cambiarPasswordFragment);
         });
         return binding.getRoot();
     }

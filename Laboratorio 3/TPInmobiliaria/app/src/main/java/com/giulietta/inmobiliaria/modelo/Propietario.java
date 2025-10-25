@@ -2,7 +2,7 @@ package com.giulietta.inmobiliaria.modelo;
 
 import java.io.Serializable;
 
-public class Propietario {
+public class Propietario implements Serializable {
     private int id;
     private String nombre;
     private String apellido;

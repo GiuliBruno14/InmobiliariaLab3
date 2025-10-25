@@ -86,9 +86,14 @@ public class ApiClient {
         @FormUrlEncoded
         @PUT("api/propietarios/cambiarPassword")
         Call<String>cambiarPassword(@Header("Authorization")String token,@Field("passwordActual")String passwordActual, @Field("passwordNueva")String passwordNueva);
-
+        //INMUEBLES
         @GET("api/inmuebles")
-        Call<List<Inmueble>> obtenerInmuebles(@Header("Authorization") String token);
+        Call<List<Inmueble>>obtenerInmuebles(@Header("Authorization") String token);
+        @PUT("api/inmuebles/actualizar")
+        Call<String> actualizarInmueble(@Header("Authorization") String token, @Body Inmueble inmueble);
+
+        @POST("api/inmuebles/crear")
+        Call<String> crearInmueble(@Header("Authorization") String token, @Body Inmueble inmueble);
 
     }
 
