@@ -38,7 +38,6 @@ public class ContratosFragment extends Fragment {
         vm.getInmuebles().observe(getViewLifecycleOwner(), new Observer<List<Inmueble>>() {
             @Override
             public void onChanged(List<Inmueble> inmuebles) {
-                Log.d("FRAGMENT_CONTRATOS", "Se recibieron " + inmuebles.size() + " contratos");
                 ContratoAdapter adapter = new ContratoAdapter(inmuebles, getContext());
                 GridLayoutManager glm = new GridLayoutManager(getContext(), 2);
                 RecyclerView rv = binding.rvInmueblesContrato;

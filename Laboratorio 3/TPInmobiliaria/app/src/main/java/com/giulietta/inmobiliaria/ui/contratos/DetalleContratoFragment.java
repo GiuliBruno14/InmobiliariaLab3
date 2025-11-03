@@ -38,7 +38,7 @@ public class DetalleContratoFragment extends Fragment {
         binding = FragmentDetalleContratoBinding.inflate(inflater, container, false);
 
         mv.getContrato().observe(getViewLifecycleOwner(), contrato -> {
-            binding.etIdContrato.setText(contrato.getId());
+            binding.etIdContrato.setText(String.valueOf(contrato.getId()));
             String inicioFormateado = DateFormat.format("dd/MM/yyyy", contrato.getFechaInicio()).toString();
             binding.etFechaInicio.setText(inicioFormateado);
             String finFormateado = DateFormat.format("dd/MM/yyyy", contrato.getFechaTerm()).toString();

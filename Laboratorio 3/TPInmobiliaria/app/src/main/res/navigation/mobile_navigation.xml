@@ -38,7 +38,11 @@
         android:id="@+id/nav_inquilinos"
         android:name="com.giulietta.inmobiliaria.ui.inquilinos.InquilinosFragment"
         android:label="@string/inquilinos"
-        tools:layout="@layout/fragment_inquilinos" />
+        tools:layout="@layout/fragment_inquilinos" >
+        <action
+            android:id="@+id/action_nav_inquilinos_to_detalleInquilinosFragment"
+            app:destination="@id/detalleInquilinosFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_contratos"
         android:name="com.giulietta.inmobiliaria.ui.contratos.ContratosFragment"
@@ -83,11 +87,20 @@
     <fragment
         android:id="@+id/detalleContratoFragment"
         android:name="com.giulietta.inmobiliaria.ui.contratos.DetalleContratoFragment"
-        android:label="fragment_detalle_contrato"
+        android:label="Detalle Contrato"
         tools:layout="@layout/fragment_detalle_contrato" >
         <action
             android:id="@+id/action_detalleContratoFragment_to_nav_contratos"
             app:destination="@id/nav_contratos" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleInquilinosFragment"
+        android:name="com.giulietta.inmobiliaria.ui.inquilinos.DetalleInquilinosFragment"
+        android:label="Datos Inquilino"
+        tools:layout="@layout/fragment_detalle_inquilinos" >
+        <action
+            android:id="@+id/action_detalleInquilinosFragment_to_nav_inquilinos"
+            app:destination="@id/nav_inquilinos" />
     </fragment>
 
 
