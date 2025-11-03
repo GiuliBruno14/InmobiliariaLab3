@@ -1,9 +1,10 @@
-package com.giulietta.inmobiliaria.ui.inmuebles;
+package com.giulietta.inmobiliaria.ui.contratos;
 
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,24 +23,27 @@ import com.giulietta.inmobiliaria.request.ApiClient;
 
 import java.util.List;
 
-public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.InmuebleViewHolder> {
-    private List<Inmueble> lista;
+public class ContratoAdapter extends RecyclerView.Adapter<ContratoAdapter.ContratoViewHolder> {
+
+    private List<Inmueble> listaInmueblesConContrato;
     private Context context;
-    public InmuebleAdapter(List<Inmueble> lista, Context context){
-        this.lista = lista;
+
+    public ContratoAdapter(List<Inmueble> lista, Context context){
+        this.listaInmueblesConContrato = lista;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public InmuebleAdapter.InmuebleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ContratoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.inmueble_card, parent, false);
-        return new InmuebleViewHolder(vista);
+        return new ContratoViewHolder(vista);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull InmuebleAdapter.InmuebleViewHolder holder, int position) {
-        Inmueble i = lista.get(position);
+    public void onBindViewHolder(@NonNull ContratoViewHolder holder, int position) {
+        Inmueble i = listaInmueblesConContrato.get(position);
+
         holder.tvDireccion.setText(i.getDireccion());
         holder.tvTipo.setText(i.getTipo());
         holder.tvPrecio.setText(String.valueOf(i.getPrecio()));
@@ -53,29 +57,29 @@ public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.Inmueb
         Glide.with(context)
                 .load(ApiClient.URLBASE + i.getImagen())
                 .placeholder(R.drawable.ic_inmuebles)
-                .error("null")
+                .error(R.drawable.ic_logout)
                 .into(holder.imgInmueble);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("inmueble", i);
-                Navigation.findNavController((Activity)view.getContext(), R.id.nav_host_fragment_content_main).navigate(R.id.detalleInmuebleFragment, bundle);
-
+                bundle.putInt("idInmueble", i.getId());
+                Navigation.findNavController((Activity)view.getContext(), R.id.nav_host_fragment_content_main).navigate(R.id.detalleContratoFragment, bundle);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return lista.size();
+        return listaInmueblesConContrato.size();
     }
-
-    public class InmuebleViewHolder extends RecyclerView.ViewHolder{
+    
+    public class ContratoViewHolder extends RecyclerView.ViewHolder{
         private TextView tvDireccion, tvTipo, tvPrecio, tvEstado;
         private ImageView imgInmueble;
         private CardView cardView;
-        public InmuebleViewHolder(@NonNull View itemView) {
+
+        public ContratoViewHolder(@NonNull View itemView) {
             super(itemView);
             tvDireccion = itemView.findViewById(R.id.tvDireccion);
             tvTipo = itemView.findViewById(R.id.tvTipo);

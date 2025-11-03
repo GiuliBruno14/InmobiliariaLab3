@@ -45,7 +45,7 @@ public class InmueblesFragment extends Fragment {
             //Navegar al fragmetn de cargar inmueble
             Navigation.findNavController(view).navigate(R.id.cargarInmuebleFragment);
         });
-
+        vm.leerInmuebles();
         return binding.getRoot();
     }
 

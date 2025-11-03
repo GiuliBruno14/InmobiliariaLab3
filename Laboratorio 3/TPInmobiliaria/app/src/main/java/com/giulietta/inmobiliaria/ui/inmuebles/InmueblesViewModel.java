@@ -24,7 +24,7 @@ public class InmueblesViewModel extends AndroidViewModel {
 
     public InmueblesViewModel(@NonNull Application application) {
         super(application);
-        leerInmuebles();
+
     }
 
     public LiveData<String> getText() {

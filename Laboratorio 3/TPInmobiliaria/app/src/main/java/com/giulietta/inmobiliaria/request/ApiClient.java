@@ -5,13 +5,17 @@ import android.content.SharedPreferences;
 import android.media.session.MediaSession;
 import android.support.v4.media.session.MediaSessionCompat;
 
+import com.giulietta.inmobiliaria.modelo.Contrato;
 import com.giulietta.inmobiliaria.modelo.Inmueble;
 import com.giulietta.inmobiliaria.modelo.Propietario;
+import com.giulietta.inmobiliaria.modelo.TipoInmuebles;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -21,8 +25,11 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Part;
+import retrofit2.http.Path;
 
 public class ApiClient {
     public static final String URLBASE = "http://192.168.100.3:5021/"; //MI API
@@ -92,9 +99,18 @@ public class ApiClient {
         @PUT("api/inmuebles/actualizar")
         Call<String> actualizarInmueble(@Header("Authorization") String token, @Body Inmueble inmueble);
 
-        @POST("api/inmuebles/crear")
-        Call<String> crearInmueble(@Header("Authorization") String token, @Body Inmueble inmueble);
+        @GET("api/inmuebles/tipos")
+        Call<List<TipoInmuebles>> obtenerTipos();
 
+        @Multipart
+        @POST("api/Inmuebles/cargar")
+        Call<Inmueble> CargarInmueble(@Header("Authorization") String token,
+                                      @Part MultipartBody.Part imagen,
+                                      @Part("inmueble") RequestBody inmuebleBody);
+        @GET("api/inmuebles/contratos-vigentes")
+        Call<List<Inmueble>>obtenerInmueblesConContratoVigente(@Header("Authorization") String token);
+        @GET("api/contratos/inmueble/{id}")
+        Call<Contrato> ObtenerContrato(@Header("Authorization") String token, @Path("id") int id);
     }
 
 }

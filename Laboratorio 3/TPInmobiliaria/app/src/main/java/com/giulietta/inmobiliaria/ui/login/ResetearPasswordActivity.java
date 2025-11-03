@@ -30,6 +30,7 @@ public class ResetearPasswordActivity extends AppCompatActivity {
             if (mensaje.contains("Correo enviado")){
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

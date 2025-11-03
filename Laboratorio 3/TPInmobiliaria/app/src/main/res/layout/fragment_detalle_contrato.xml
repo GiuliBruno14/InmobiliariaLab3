@@ -1,210 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_degrade"
-    android:padding="12dp"
-    tools:context=".ui.inmuebles.CargarInmuebleFragment">
+    android:padding="34dp"
+    tools:context=".ui.contratos.DetalleContratoFragment">
 
-    <!-- Contenedor principal (Card) -->
     <LinearLayout
-        android:id="@+id/inmueble_container"
+        android:id="@+id/contrato_container"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:background="@drawable/card_redondeada"
         android:elevation="4dp"
         android:gravity="center_horizontal"
-        android:orientation="vertical"
         android:padding="24dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Título -->
-        <TextView
-            android:id="@+id/tvTitulo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:text="Cargar Inmueble"
-            android:textColor="@color/verde_oscuro"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-        <!-- Dirección -->
+        <!-- ID Contrato -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:hint="Dirección"
+            android:hint="ID Contrato"
             app:boxBackgroundColor="@android:color/white"
             app:boxStrokeColor="@color/verde_oscuro"
             app:hintTextColor="@color/verde_oscuro">
-
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etDireccion"
+                android:id="@+id/et_id_contrato"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapWords"
+                android:enabled="false"
                 android:textColor="@color/verde_oscuro"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Uso -->
+        <!-- Fecha Inicio -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:hint="Uso (Residencial, Comercial...)"
+            android:hint="Fecha Inicio"
             app:boxBackgroundColor="@android:color/white"
             app:boxStrokeColor="@color/verde_oscuro"
             app:hintTextColor="@color/verde_oscuro">
-
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etUso"
+                android:id="@+id/et_fecha_inicio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapWords"
+                android:enabled="false"
                 android:textColor="@color/verde_oscuro"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Tipo -->
+        <!-- Fecha Fin -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:hint="Tipo (Casa, Departamento...)"
+            android:hint="Fecha Fin"
             app:boxBackgroundColor="@android:color/white"
             app:boxStrokeColor="@color/verde_oscuro"
             app:hintTextColor="@color/verde_oscuro">
-
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/spTipo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="45dp"
-                android:completionThreshold="0"
-                android:inputType="none"
-                android:textColor="@color/verde_oscuro"
-                android:textSize="14sp"
-                android:padding="10dp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Ambientes -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:hint="Cantidad de ambientes"
-            app:boxBackgroundColor="@android:color/white"
-            app:boxStrokeColor="@color/verde_oscuro"
-            app:hintTextColor="@color/verde_oscuro">
-
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etAmbientes"
+                android:id="@+id/et_fecha_fin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:enabled="false"
                 android:textColor="@color/verde_oscuro"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Latitud -->
+        <!-- Monto Mensual -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:hint="Latitud"
+            android:hint="Monto Mensual"
             app:boxBackgroundColor="@android:color/white"
             app:boxStrokeColor="@color/verde_oscuro"
             app:hintTextColor="@color/verde_oscuro">
-
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etLatitud"
+                android:id="@+id/et_monto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:enabled="false"
                 android:textColor="@color/verde_oscuro"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Longitud -->
+        <!-- Inquilino -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:hint="Longitud"
+            android:hint="Inquilino"
             app:boxBackgroundColor="@android:color/white"
             app:boxStrokeColor="@color/verde_oscuro"
             app:hintTextColor="@color/verde_oscuro">
-
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etLongitud"
+                android:id="@+id/et_inquilino"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:enabled="false"
                 android:textColor="@color/verde_oscuro"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Precio -->
+        <!-- ID Inmueble -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID Inmueble"
+            app:boxBackgroundColor="@android:color/white"
+            app:boxStrokeColor="@color/verde_oscuro"
+            app:hintTextColor="@color/verde_oscuro">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_id_inmueble"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:textColor="@color/verde_oscuro"
+                android:textSize="14sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Dirección Inmueble -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:hint="Precio"
+            android:hint="Dirección Inmueble"
             app:boxBackgroundColor="@android:color/white"
             app:boxStrokeColor="@color/verde_oscuro"
             app:hintTextColor="@color/verde_oscuro">
-
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPrecio"
+                android:id="@+id/et_direccion_inmueble"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
+                android:enabled="false"
                 android:textColor="@color/verde_oscuro"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Botón Imagen -->
         <Button
-            android:id="@+id/btnSeleccionarImagen"
+            android:id="@+id/btn_ver_pagos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:backgroundTint="@color/verde"
-            android:text="Seleccionar Imagen"
-            android:textColor="@android:color/white" />
-
-        <!-- Vista previa de imagen -->
-        <ImageView
-            android:id="@+id/ivPreviewImagen"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop" />
-
-        <!-- Botón Guardar -->
-        <Button
-            android:id="@+id/btnGuardarInmueble"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/verde"
-            android:text="Guardar Inmueble"
-            android:textColor="@android:color/white" />
+            android:layout_marginTop="16dp"
+            android:text="Ver Pagos"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/verde_oscuro"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:letterSpacing="0.02"
+            android:elevation="4dp"
+            android:stateListAnimator="@null"
+            android:clipToOutline="true" />
 
     </LinearLayout>
 
