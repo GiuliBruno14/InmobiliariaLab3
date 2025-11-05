@@ -7,6 +7,7 @@ import android.support.v4.media.session.MediaSessionCompat;
 
 import com.giulietta.inmobiliaria.modelo.Contrato;
 import com.giulietta.inmobiliaria.modelo.Inmueble;
+import com.giulietta.inmobiliaria.modelo.Pago;
 import com.giulietta.inmobiliaria.modelo.Propietario;
 import com.giulietta.inmobiliaria.modelo.TipoInmuebles;
 import com.google.gson.Gson;
@@ -111,6 +112,9 @@ public class ApiClient {
         Call<List<Inmueble>>obtenerInmueblesConContratoVigente(@Header("Authorization") String token);
         @GET("api/contratos/inmueble/{id}")
         Call<Contrato> ObtenerContrato(@Header("Authorization") String token, @Path("id") int id);
+
+        @GET("api/contratos/pagos/{id}")
+        Call<List<Pago>> ObtenerPagos(@Header("Authorization") String token, @Path("id") int id);
     }
 
 }

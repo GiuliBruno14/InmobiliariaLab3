@@ -26,7 +26,7 @@ public class ContratosViewModel extends AndroidViewModel {
         leerInmueblesConContratoVigente();
     }
 
-    public LiveData<String> getText() {
+    public LiveData<String> getMensaje() {
         return mText;
     }
 

@@ -2,11 +2,13 @@ package com.giulietta.inmobiliaria.ui.contratos;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
@@ -51,6 +53,12 @@ public class DetalleContratoFragment extends Fragment {
         mv.obtenerContrato(getArguments());
         mv.getMensaje().observe(getViewLifecycleOwner(), error -> {
             Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
+        });
+        binding.btnVerPagos.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putInt("IdContrato", Integer.parseInt(binding.etIdContrato.getText().toString()));
+            Navigation.findNavController(v).navigate(R.id.pagosFragment, bundle);
+
         });
         return binding.getRoot();
     }

@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.giulietta.inmobiliaria.R;
 import com.giulietta.inmobiliaria.databinding.FragmentContratosBinding;
@@ -27,15 +28,15 @@ import java.util.List;
 
 public class ContratosFragment extends Fragment {
 
-    private ContratosViewModel vm;
+    private ContratosViewModel mv;
     private FragmentContratosBinding binding;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        vm = new ViewModelProvider(this).get(ContratosViewModel.class);
+        mv = new ViewModelProvider(this).get(ContratosViewModel.class);
         binding = FragmentContratosBinding.inflate(inflater, container, false);
-        vm.getInmuebles().observe(getViewLifecycleOwner(), new Observer<List<Inmueble>>() {
+        mv.getInmuebles().observe(getViewLifecycleOwner(), new Observer<List<Inmueble>>() {
             @Override
             public void onChanged(List<Inmueble> inmuebles) {
                 ContratoAdapter adapter = new ContratoAdapter(inmuebles, getContext());
@@ -44,6 +45,9 @@ public class ContratosFragment extends Fragment {
                 rv.setLayoutManager(glm);
                 rv.setAdapter(adapter);
             }
+        });
+        mv.getMensaje().observe(getViewLifecycleOwner(), error -> {
+            Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
         });
         return binding.getRoot();
     }
