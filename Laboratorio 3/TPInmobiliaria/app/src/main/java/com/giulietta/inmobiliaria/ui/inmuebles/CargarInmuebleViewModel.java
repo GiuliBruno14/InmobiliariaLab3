@@ -95,7 +95,6 @@ public class CargarInmuebleViewModel extends AndroidViewModel {
                             mText.setValue("Inmueble cargado correctamente");
                         } else {
                             mText.setValue("Error al cargar el inmueble: " + response.message());
-                            System.out.println("Error al cargar el inmueble:Entroaca " + response.message());
                         }
                     }
 

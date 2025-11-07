@@ -52,7 +52,6 @@ public class PagosFragment extends Fragment {
         });
         if (getArguments() != null && getArguments().containsKey("IdContrato")) {
             int idContrato = getArguments().getInt("IdContrato");
-            android.util.Log.d("PagosFragment", "ID Contrato recibido: " + idContrato);
             mv.leerPagos(idContrato);
         } else {
             Toast.makeText(getContext(), "No se encontró el ID del contrato.", Toast.LENGTH_SHORT).show();

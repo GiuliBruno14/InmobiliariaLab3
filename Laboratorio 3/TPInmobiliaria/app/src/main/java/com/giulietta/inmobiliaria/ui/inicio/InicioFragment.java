@@ -3,6 +3,9 @@ package com.giulietta.inmobiliaria.ui.inicio;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +29,6 @@ public class InicioFragment extends Fragment {
 
         mv = new ViewModelProvider(this).get(InicioViewModel.class);
         binding = FragmentInicioBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
         // Obtener la referencia al SupportMapFragment
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map_container);
@@ -36,7 +38,20 @@ public class InicioFragment extends Fragment {
                 mv.onMapReady(googleMap);
             });
         }
-        return root;
+        binding.btnLlamar.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:123456789"));
+            startActivity(intent);
+        });
+        binding.btnEmail.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse("mailto:inmobiliaria@ejemplo.com"));
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Consulta desde la app");
+            intent.putExtra(Intent.EXTRA_TEXT, "Hola, quiero más información sobre...");
+            startActivity(Intent.createChooser(intent, "Enviar email con:"));
+        });
+
+        return binding.getRoot();
     }
 
     @Override

@@ -38,24 +38,21 @@ public class PagosViewModel extends AndroidViewModel {
         String token = ApiClient.leerToken(getApplication());
         ApiClient.InmobiliariaService api = ApiClient.getApiInmobiliaria();
         Call<List<Pago>> llamada = api.ObtenerPagos("Bearer " + token,idContrato);
-        /// Mensaje
-        System.out.println("Hoola?");
+
         llamada.enqueue(new Callback<List<Pago>>() {
             @Override
             public void onResponse(Call<List<Pago>> call, Response<List<Pago>> response) {
                 if (response.isSuccessful()) {
                     pagos.postValue(response.body());
-                    mensaje.postValue("PAggosss");
+                    mensaje.postValue("Pagos ");
                     System.out.println("Entrooooo");
                 } else {
-                    mensaje.postValue("No hay pagos registrados para estesi contrato");
-                    System.out.println(" NOOOO Entrooooo");
+                    mensaje.postValue("No hay pagos registrados para este contrato");
                 }
             }
             @Override
             public void onFailure(Call<List<Pago>> call, Throwable t) {
-                mensaje.postValue("Error de servidor: " + t.getMessage());
-                System.out.println("SE ROMPIOOOOOOO" + t.getMessage());
+                mensaje.postValue("Error de servidor: "+ t.getMessage());
             }
         });
     }
