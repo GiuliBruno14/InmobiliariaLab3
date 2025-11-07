@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 
+import com.giulietta.inmobiliaria.databinding.NavHeaderMainBinding;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -44,13 +45,20 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        mv.getPropietario().observe(this, propietario -> {
+            View headerView = binding.navView.getHeaderView(0);
+            NavHeaderMainBinding headerBinding = NavHeaderMainBinding.bind(headerView);
+            headerBinding.tvUsuario.setText(propietario.getNombre()+" "+propietario.getApellido());
+            headerBinding.tvEmail.setText((propietario.getEmail()));
+                });
         navigationView.setNavigationItemSelectedListener(item -> {
             if (item.getItemId() == R.id.nav_logout) {
                 mv.cerrarSesion();
-                finish(); // Cierra esta Activity
+                finish();
                 return true;
             }
-            // Para cualquier otro item, dejamos que la navegación funcione como siempre
+
             return NavigationUI.onNavDestinationSelected(item, navController);
         });
 
